@@ -238,3 +238,26 @@ This tool is intended for personal asset inspection, modding workflows, and educ
 Download the latest executable from the **Releases** section of this repository.
 
 > Source code is not included in the current release.
+
+
+## Images
+
+> Initial interface
+<img width="1159" height="836" alt="home" src="https://github.com/user-attachments/assets/0395ca5f-f58a-4894-bd26-854ebb24614a" />
+
+
+> Select any TQ file
+<img width="1124" height="586" alt="PickFile" src="https://github.com/user-attachments/assets/a2cf3a7c-a6c9-4cea-9c5b-056c6e14610b" />
+
+> Preview loaded files and select the export format (models, animations and textures)
+<img width="1153" height="817" alt="selectAll" src="https://github.com/user-attachments/assets/1691a8ce-21a5-4563-ae8d-35d494540d56" />
+
+> Choose the output folder and export
+<img width="1155" height="832" alt="exporting" src="https://github.com/user-attachments/assets/05d7e14d-e0f3-4eef-ac0e-2bd474744526" />
+
+> Wait the extraction and convertion
+<img width="1157" height="829" alt="logs" src="https://github.com/user-attachments/assets/daaeaf71-81f2-4eae-9724-79b15f9318b2" />
+
+> Open the models using Blender, milkshape 3D or any other 3D software.
+<img width="800" height="421" alt="image" src="https://github.com/user-attachments/assets/4442cb6a-81a7-4136-92fc-b6634204b3fc" />
+
