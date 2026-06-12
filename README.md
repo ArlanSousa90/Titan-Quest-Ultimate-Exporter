@@ -9,6 +9,17 @@ It helps users work with Titan Quest files such as `.ARC`, `.MSH`, `.ANM`, and `
 
 ---
 
+## Installation
+
+1. Go to the [Releases](https://github.com/ArlanSousa90/Titan-Quest-Ultimate-Exporter/releases/latest) section and download `TQUE-v1.0.0-win-x64.zip`.
+2. Extract the `.zip` file.
+3. Run `TQUE.exe`.
+
+> This release is currently distributed as an executable-only preview.
+
+---
+
+
 ## Features
 
 - Open one or more Titan Quest asset files.
@@ -186,15 +197,6 @@ If the 3D preview does not appear, install the Microsoft Edge WebView2 Runtime.
 
 ---
 
-## Installation
-
-1. Go to the [Releases](https://github.com/ArlanSousa90/Titan-Quest-Ultimate-Exporter/releases/latest) section and download `TQUE-v1.0.0-win-x64.zip`.
-2. Extract the `.zip` file.
-3. Run `TQUE.exe`.
-
-> This release is currently distributed as an executable-only preview.
-
----
 
 ## Current Status
 
