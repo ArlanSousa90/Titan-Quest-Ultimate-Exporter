@@ -176,9 +176,11 @@ By default, `.BMP` is selected.
 
 ## Requirements
 
-- Windows
+- Windows 64-bit
 - Titan Quest asset files
 - Microsoft Edge WebView2 Runtime for 3D preview
+
+No .NET installation is required — the executable is self-contained.
 
 If the 3D preview does not appear, install the Microsoft Edge WebView2 Runtime.
 
@@ -186,9 +188,9 @@ If the 3D preview does not appear, install the Microsoft Edge WebView2 Runtime.
 
 ## Installation
 
-1. Download the latest release from the **Releases** section.
+1. Go to the [Releases](https://github.com/ArlanSousa90/Titan-Quest-Ultimate-Exporter/releases/latest) section and download `TQUE-v1.0.0-win-x64.zip`.
 2. Extract the `.zip` file.
-3. Run the executable.
+3. Run `TQUE.exe`.
 
 > This release is currently distributed as an executable-only preview.
 
@@ -235,7 +237,7 @@ This tool is intended for personal asset inspection, modding workflows, and educ
 
 ## Download
 
-Download the latest executable from the **Releases** section of this repository.
+Download the latest executable from the [Releases](https://github.com/ArlanSousa90/Titan-Quest-Ultimate-Exporter/releases/latest) section of this repository.
 
 > Source code is not included in the current release.
 
