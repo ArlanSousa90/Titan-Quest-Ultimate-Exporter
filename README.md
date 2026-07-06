@@ -2,7 +2,7 @@
 
 **Titan Quest Ultimate Exporter** is a Windows tool for inspecting, previewing, and exporting Titan Quest game assets.
 
-It helps users work with Titan Quest files such as `.ARC`, `.MSH`, `.ANM`, and `.TEX` through a simple graphical interface, without needing to manually run command-line commands for each file.
+It helps users work with Titan Quest files such as `.ARC`, `.ARZ`, `.MSH`, `.ANM`, and `.TEX` through a simple graphical interface, without needing to manually run command-line commands for each file.
 
 > Current release: executable-only preview.  
 > Source code is not publicly available at this time.
@@ -11,7 +11,7 @@ It helps users work with Titan Quest files such as `.ARC`, `.MSH`, `.ANM`, and `
 
 ## Installation
 
-1. Go to the [Releases](https://github.com/ArlanSousa90/Titan-Quest-Ultimate-Exporter/releases/latest) section and download `TQUE-v1.0.0-win-x64.zip`.
+1. Go to the [Releases](https://github.com/ArlanSousa90/Titan-Quest-Ultimate-Exporter/releases/latest) section and download `TQUE-v1.1.0-win-x64.zip`.
 2. Extract the `.zip` file.
 3. Run `TQUE.exe`.
 
@@ -26,11 +26,19 @@ It helps users work with Titan Quest files such as `.ARC`, `.MSH`, `.ANM`, and `
 - Drag and drop supported files directly into the application.
 - Auto-detect supported file types.
 - Inspect loaded assets using a TreeView.
-- Preview `.TEX` texture files inside the application.
-- Preview 3D models and animations inside the application.
-- Export textures to `.BMP` and `.PNG`.
+- Preview and export directly from inside `.ARC` archives — no need to extract first.
+- Preview `.TEX` texture files inside the application, pixel-perfect (1:1) with zoom and adjustment sliders.
+- Preview 3D models inside the application, with a built-in animation player.
+- Select which skin/texture to apply in the 3D preview.
+- Read Titan Quest database files (`.ARZ`) and inspect `.DBR` / `.TXT` records.
+- Search and filter large archives, with lazy loading to keep the UI responsive.
+- Export textures to `.BMP`, `.PNG`, `.TGA`, and `.PSD` (TGA/PSD are handy for the Art Manager).
 - Export models and animations to modern 3D formats.
+- Extract audio to `.MP3` and `.WAV`.
+- Choose which export formats you want, per asset type.
 - Organize exported files automatically by object and format.
+- Set default load / export folders in Preferences, and auto-detect your Steam Titan Quest install.
+- Multi-language interface — starts in English; you can change the language on first run.
 - Show loading and export progress in the status bar.
 - Support grouped views for `.ARC` archives.
 
@@ -41,6 +49,7 @@ It helps users work with Titan Quest files such as `.ARC`, `.MSH`, `.ANM`, and `
 | File Type | Description |
 |---|---|
 | `.ARC` | Titan Quest archive files containing models, textures, animations, and other assets |
+| `.ARZ` | Titan Quest database files containing compiled records (`.DBR` / `.TXT`) |
 | `.MSH` | Titan Quest 3D model files |
 | `.ANM` | Titan Quest animation files |
 | `.TEX` | Titan Quest texture files |
@@ -53,9 +62,10 @@ It helps users work with Titan Quest files such as `.ARC`, `.MSH`, `.ANM`, and `
 
 | Format | Description |
 |---|---|
-| `.GLB` | glTF binary format, useful for previewing and modern 3D workflows |
+| `.GLB` | glTF binary format, useful for previewing and modern 3D workflows (Like Blender) |
 | `.FBX` | Common 3D exchange format used by tools such as Blender, Maya, and Unreal Engine |
 | `.SMD` | Source Engine / Half-Life Studio Model Data format |
+| `.OBJ` | Wavefront OBJ, a widely supported static mesh format |
 | `.PSK/.PSA` | Unreal ActorX mesh and animation formats |
 
 ### Textures
@@ -64,6 +74,15 @@ It helps users work with Titan Quest files such as `.ARC`, `.MSH`, `.ANM`, and `
 |---|---|
 | `.BMP` | Default texture export format |
 | `.PNG` | Compressed image format useful for quick viewing and sharing |
+| `.TGA` | Truevision TGA, commonly used by the Titan Quest Art Manager |
+| `.PSD` | Photoshop document, useful for editing textures before re-importing |
+
+### Audio
+
+| Format | Description |
+|---|---|
+| `.MP3` | Compressed audio (converted with the bundled FFmpeg) |
+| `.WAV` | Uncompressed audio extracted from archives |
 
 ---
 
@@ -84,6 +103,8 @@ It helps users work with Titan Quest files such as `.ARC`, `.MSH`, `.ANM`, and `
 ## `.ARC` Archive Support
 
 The tool can inspect `.ARC` archive files and display their contents.
+
+The `.ARC` tree mirrors the archive's real folder structure, and you can preview and export assets directly from inside the archive without extracting it first.
 
 Two organization modes are supported:
 
@@ -111,6 +132,17 @@ Creatures.arc
 ```
 
 The affinity view is useful when you want to export a complete object, such as a creature, with its model, textures, and animations together.
+
+---
+
+## `.ARZ` Database Support
+
+The tool can open Titan Quest database archives (`.ARZ`), such as `database.arz`, and browse their records.
+
+- Inspect compiled `.DBR` / `.TXT` records in the TreeView.
+- Preview a record as a key/value list.
+- Export a record to a text file.
+- A search / filter box and lazy loading keep the interface responsive even with very large databases (~74k records).
 
 ---
 
@@ -166,7 +198,7 @@ The application attempts to locate the related `.MSH` file automatically.
 
 The application includes an internal 3D preview panel.
 
-The preview is intended to help users quickly inspect models and animations before exporting. When possible, the tool attempts to apply related textures automatically.
+The preview is intended to help users quickly inspect models and animations before exporting. It includes a built-in animation player, and works directly on assets inside `.ARC` archives — no extraction required. When possible, the tool applies related textures automatically, and you can select which skin/texture to apply.
 
 If no texture is found, the preview uses a darker background and adjusted material color to make the model easier to see.
 
@@ -176,12 +208,24 @@ If no texture is found, the preview uses a darker background and adjusted materi
 
 `.TEX` files can be previewed directly inside the application.
 
-The user can choose whether to export textures as:
+The preview is pixel-perfect (1:1) instead of blurry, and includes zoom and adjustment sliders so you can inspect textures closely.
+
+Textures can be exported as:
 
 - `.BMP`
 - `.PNG`
+- `.TGA`
+- `.PSD`
 
 By default, `.BMP` is selected.
+
+---
+
+## Preferences & Language
+
+- Set default **load** and **export** folders so you don't have to browse every time.
+- The tool **auto-detects your Steam** Titan Quest installation when available.
+- The interface **starts in English** by default; you can pick another language on first run and change it later in Preferences.
 
 ---
 
@@ -191,7 +235,7 @@ By default, `.BMP` is selected.
 - Titan Quest asset files
 - Microsoft Edge WebView2 Runtime for 3D preview
 
-No .NET installation is required — the executable is self-contained.
+No .NET installation is required — the executable is self-contained. FFmpeg is bundled for `.MP3` conversion, so no extra install is needed.
 
 If the 3D preview does not appear, install the Microsoft Edge WebView2 Runtime.
 
@@ -235,6 +279,8 @@ Titan Quest and related assets belong to their respective owners.
 
 This tool is intended for personal asset inspection, modding workflows, and educational purposes.
 
+This release bundles [FFmpeg](https://ffmpeg.org), used under the terms of its GPL/LGPL license, for audio conversion.
+
 ---
 
 ## Download
@@ -264,4 +310,3 @@ Download the latest executable from the [Releases](https://github.com/ArlanSousa
 
 > Open the models using Blender, milkshape 3D or any other 3D software.
 <img width="800" height="421" alt="image" src="https://github.com/user-attachments/assets/4442cb6a-81a7-4136-92fc-b6634204b3fc" />
-
